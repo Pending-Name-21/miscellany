@@ -4,6 +4,8 @@ use std::os::unix::net::UnixListener;
 
 use crate::models::events::window::MyWindowEvent;
 
+use super::receiver_handler::handle_received_event;
+
 pub struct SocketServer {
     listener: UnixListener,
 }
@@ -21,7 +23,7 @@ impl SocketServer {
                 for line in reader.lines() {
                     let buf = line?;
                     let event: MyWindowEvent = serde_json::from_str(&buf).unwrap();
-                    println!("{:?}", event);
+                    handle_received_event(event);
                 }
             }
             Err(error) => {
