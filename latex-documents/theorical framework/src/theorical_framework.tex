@@ -7,7 +7,7 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 
-\title{Game Development Platform Documentation}
+\title{Game Engine Documentation}
 \author{}
 \date{}
 
@@ -18,63 +18,6 @@
 \tableofcontents
 \newpage
 
-\section{Profile}
-
-\subsection{Introduction}
-Game development requires programmers to either learn how to use a complex game engine or low level programming languages. Our solution aims to provide new game developers with a platform where they spend more time developing a game than managing graphics or I/O.
-
-\subsection{Problem Description}
-Game development requires the usage of low level programming languages or complicated game engines. There is a need for a high level programming language that can be used to develop games without having to manage input device peripherals or a graphical user interface.
-
-\section{Objectives}
-
-\subsection{General Objective}
-Create a software solution, a platform that allows high level language programmers to develop games without worrying about a graphic user interface or I/O and instead spend more time developing the game.
-
-\subsection{Specific Objectives}
-\begin{itemize}
-    \item Example games:
-    \begin{itemize}
-        \item A simple tic-tac-toe \href{https://docs.google.com/document/d/1MvlmgCBZvRrT61A3mnra-3bZ41zCcE_vmNHpHkZyQ2M/edit}{PRD Tictactoe}
-        \item A generic Pac-Man \href{https://docs.google.com/document/d/1ST29Ap_2OGVEf--gPTfHYmAZrcIQC6jl6y32fM3UQWo/edit}{PRD Pacman}
-    \end{itemize}
-    \item Input peripherals support
-    \begin{itemize}
-        \item Keyboard
-        \item Mouse
-    \end{itemize}
-    \item Output support
-    \begin{itemize}
-        \item Audio
-        \item Graphical User Interface
-    \end{itemize}
-    \item Game Development Library
-    \begin{itemize}
-        \item This library will provide necessary tools for game development.
-    \end{itemize}
-\end{itemize}
-
-\section{Scope and Limits}
-
-\subsection{Scope}
-\begin{itemize}
-    \item Java developers that want to develop games.
-\end{itemize}
-
-\subsection{Limits}
-\begin{itemize}
-    \item Hardware
-    \begin{itemize}
-        \item A GPU that supports Vulkan, since version 1.3
-    \end{itemize}
-    \item Miscellany
-    \begin{itemize}
-        \item Games only can be played locally.
-        \item Only 2D graphics.
-        \item To run the game, the end-user has to have basic terminal knowledge.
-        \item The library will be written in Java 17.
-    \end{itemize}
-\end{itemize}
 \section{Technology justification}
 Has a team we divided by front-end and back-end, front-end refered to games development and the library, for backend we manage screen and console, console has a interpreter and screen has the peace that contains GUI, input/output and sounds.
 
@@ -132,6 +75,7 @@ C & NO & UNITY \\
     \item Technology justification \href{https://docs.google.com/document/d/1OWdCxe9lFPcMpADiyAyRCWGAioo0fwIuzMuRER24MHM/edit}{Doc}
 \end{itemize}
 \section{Game Communication}
+\subsection{Description}
 \setlength{\parskip}{1em}
 To observe o understand the flow of information, lets begin with the game.
 The game is an implementation in Java that must define the attitudes, events that the game will have, the programming of when you win and when you lose, what happens if a character collides with something in its environment, etc..., it is the responsibility of the game. take care of everything related to the logic of the game and its actions such as creating its resources such as sounds or images, for which the game itself must implement those events, Obeying the contract.
