@@ -1,0 +1,76 @@
+\section{Practical Framework}
+% \author{}
+% \date{}
+
+% \maketitle
+
+\subsection{Sprint 0}
+\subsubsection{Introduction}
+In this sprint we were still researching concepts and tools, focused on low-level tools and languages for the console, also how to communicate console and game.
+\subsubsection{Spikes}
+We focus on the need to investigate and reduce uncertainty before committing to the implementation of concrete solutions.
+\paragraph{LLVM}
+For LLVM, the research was concerned with finding a way to communicate a high-level language such as Java with a low-level language, at this point it was open to C, C++ or others, LLVM was an option that, although it fulfilled its ability to compile a high-level language to a low-level one, after doing the Spike we realized that it was more related to compilers, a set of tools to be able to make compilers even of industrial size, although we found something similar to what we were looking for with a tool developed with LLVM. "DragonEgg" But it is deprecated, the documentation is scarce and for the time of the project we did not see it optimal, it was discarded.
+\paragraph{JNI}
+For JNI, which is Java Native Interface, a Spike was carried out to see its viability applied to a context close to the project, seeing what it could support and what not, to see its limitations, and this was the option that was taken for the project due to that the spike demonstrated effective communication between Java and Rust, so this concept was continued.
+\subsubsection{POC's}
+There POC on this Sprint its anexed on Product Backlog.
+The results of the POC its the development of a technichal justification:
+\begin{itemize}    
+    \item Spike JVM: \href{https://docs.google.com/document/d/1OWdCxe9lFPcMpADiyAyRCWGAioo0fwIuzMuRER24MHM/edit#heading=h.ql4vc1ru9w5i}{Justification}
+\end{itemize}
+
+
+\subsubsection{Technical Justification}
+
+During Sprint 0, the team focused exclusively on conducting Spikes instead of developing POCs (Proof of Concepts). This decision was made based on the following reasons:
+
+\paragraph{Reduction of Technical Uncertainty}
+The project presented multiple areas of technical uncertainty that needed to be explored and understood before moving on to practical implementation. The Spikes allowed us to investigate different technologies, approaches, and possible solutions, providing a deeper understanding of the challenges and opportunities present.
+
+\paragraph{Feasibility Assessment}
+Before committing significant resources to the development of POCs, it was crucial to assess the technical feasibility of the proposed ideas and approaches. The Spikes provided the opportunity to conduct brief and focused investigations, which allowed us to quickly identify viable solutions and discard those that were not, without the need to build complete implementations.
+
+
+\subsubsection{High-Level Architecture (HLArchitecture)}
+For the time of this Sprint there were no a first oficial version of the architecture, but the architecture that the SPikes and POC end of was the first version:
+\begin{itemize}
+\item Results: \href{https://github.com/Pending-Name-21/arquitecture/pull/1/files}{Architecture first version}
+you can see it on: 
+\item Link to C4 dsl: \href{https://structurizr.com/dsl}{Visualizer}
+\end{itemize}
+\newpage
+\subsubsection{Product Backlog}
+
+\paragraph{Done}
+Completed spikes.
+\begin{itemize}
+    \item Spike JVM: \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/us/2?milestone=390348}{Task id-2}
+    \item Spike C VM: \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/us/4?milestone=390348}{Task id-4}
+    \item Spike C++ VM: \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/us/3?milestone=390348}{Task id-3}
+    \item Spike Bytecode and C: \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/us/5?milestone=390348}{Task id-5}
+    \item Spike Reflection: \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/us/6?milestone=390348}{Task id-6}
+    \item Spike LLVM: \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/us/8?milestone=390348}{Task id-8}
+    \item Spike Sprites Sounds Effects: \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/us/9?milestone=390348}{Task id-9}
+    \item Spike Implicit calls in java: \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/us/10?milestone=390348}{Task id-10}
+    \item Spike KISS, DRYand YAGNI: \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/us/12?milestone=390348}{Task id-12}
+    \item Spike Assembler: \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/us/13?milestone=390348}{Task id-13}
+    \item Spike web Assamebly: \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/us/14?milestone=390348}{Task id-14}
+    \item Spike Interop communication between two programs: \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/us/15?milestone=390348}{Task id-15}
+    \item POC: Tech stack: \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/us/16?milestone=390348}{Task id-16}
+\end{itemize}
+
+\paragraph{Carry Over}
+For this Sprint all assigned SPikes that were assigned ended in time. No carry overs.
+
+\paragraph{Conclussions}
+This Sprite most work was on investigate ways to communicate a console in a low level language with the game, So all the Spikes were refered to understand a clair way to achieve that communication, all the spikes were ended on time, has a result of this spikes we choose JNI, has the way to communicate our game in Java with a console writed on Rust, also we discard LLVM, C VM, C++ VM and Assambly.
+
+\subsubsection{Epics}
+For this Sprint 0 we have the following epics.
+\begin{itemize}
+    \item Library
+    \item Console
+    \item Input/output
+    \item Graphics
+\end{itemize}
