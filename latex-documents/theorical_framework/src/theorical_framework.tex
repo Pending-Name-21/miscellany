@@ -1,0 +1,83 @@
+\section{Theorical Framework}
+
+\subsection{Technology justification}
+Has a team we divided by front-end and back-end, front-end refered to games development and the library, for backend we manage screen and console, console has a interpreter and screen has the peace that contains GUI, input/output and sounds.
+
+\subsubsection{Frontend}
+
+The team agreed to use Java as a frontend language, taking into account that it is a high-level language, from an object-oriented paradigm that the team already knows and has worked with before.
+
+\begin{tabular}{|l|c|c|}
+\hline
+Language & Must be an OOP language & Must provide a testing suite \\
+\hline
+Java & YES & JUnit 5 \\
+\hline
+C & NO & UNITY \\
+\hline
+\end{tabular}
+
+\subsubsection{Backend}
+
+\textbf{Rust}
+\begin{itemize}
+    \item Is a Low-Level and compiled language
+    \item ``Rust is blazingly fast and memory-efficient: with no runtime or garbage collector, it can power performance-critical services, run on embedded devices, and easily integrate with other languages.'' – Rust-Performance
+    \item Graphs management
+    \begin{itemize}
+        \item Window handling: 
+        \begin{itemize}
+            \item Wayland
+            \item X11
+        \end{itemize}
+        \item Graphics
+    \end{itemize}
+    \item I/O access
+    \begin{itemize}
+        \item Rust provides a variety of libraries for operations like listening for keyboard or mouse events.
+    \end{itemize}
+    \item Foreign Function Interface Support
+    \begin{itemize}
+        \item \textbf{Java:}
+        \begin{itemize}
+            \item JNI Bindings for Rust is a library that allows us to:
+            \begin{itemize}
+                \item Implement native Java methods for JVM and Android in Rust
+                \item Call Java code from Rust
+                \item Embed JVM in Rust applications and use any Java libraries
+            \end{itemize}
+    
+        \end{itemize}
+        \item \textbf{C:}
+        \begin{itemize}
+            \item For static linking, a build process must be performed for the C code based on a CMakeLists.txt configuration, where it uses the cmake dependency to create a library.
+        
+        \end{itemize}
+    \end{itemize}
+    \item Technology justification \href{https://docs.google.com/document/d/1OWdCxe9lFPcMpADiyAyRCWGAioo0fwIuzMuRER24MHM/edit}{Doc}
+\end{itemize}
+\subsection{Game Communication}
+\subsubsection{Description}
+\setlength{\parskip}{1em}
+To observe o understand the flow of information, lets begin with the game.
+The game is an implementation in Java that must define the attitudes, events that the game will have, the programming of when you win and when you lose, what happens if a character collides with something in its environment, etc..., it is the responsibility of the game. take care of everything related to the logic of the game and its actions such as creating its resources such as sounds or images, for which the game itself must implement those events, Obeying the contract.
+
+
+The contract is a library implemented by the team, we are based on and take JavaFX as an example, a graphic library that in order to use it requires you to create certain components for its use, now we call this library within the team bridge since it works as a bridge between the game and console.
+
+
+This communication works through JNI, which as we pointed out before would be the method used to communicate both languages based on the successful results of the spike referring to this implementation.
+
+
+Once the information reaches the console, it will be processed by the intermediaries, the input/output intermediate, which will send the information through sockets to the screen.
+
+
+Screen also has the sockets to guarantee communication with the console, it is also responsible for managing the RUST graphic library, which in this case we use "nannou" as a graphic library, in terms of GUI (sprites), Input (keyboard and mouse ), output (sounds).
+
+
+For how it works lets think about a game in this case Pacman, we collide with a ghost, this event is handled by the game the "what will happen when it collides" the state of the game is updated, since Pacman is removed from the screen by who has lost a life, so Pacman's image must be updated on the screen, that information flows through the previously described flow to reach the screen as an update of Pacman's image based on his coordinates
+\begin{itemize}
+    \item More info on:  \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/wiki/game-communication}{Game Communication}
+      \item More info on:  \href{https://github.com/Pending-Name-21/arquitecture/blob/main/workspace.dsl}{Architecture} 
+      \item More info on:  \href{https://github.com/Pending-Name-21/arquitecture/pull/12}{Actual Architecture PR} 
+\end{itemize}
