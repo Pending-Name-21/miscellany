@@ -695,7 +695,8 @@ Time:}\label{availabilitysupporttime}}
 \tightlist
 \item
   Once a testeable US is finished, it goes to "Ready for QA" status, we notify the
-  QA team and wait for their feedback.
+\item
+  In case issues are detected, we proceed to correct and it goes to "Ready for QA" again. If there are no problems, the US goes to production.
 \end{itemize}
 
 \hypertarget{qualitycontrolnbsp}{
@@ -738,10 +739,6 @@ macros, but we will retain the organization by logic and independent
 development.~
 
 \includegraphics[width=\textwidth]{./methodology/src/assets/microdeployment.jpg}
-
-For the moment, each repository will manage the GitFlow structure, and a
-small modification will be made by adding a testing branch for the QA
-team.
 
 \includegraphics[width=\textwidth]{./methodology/src/assets/gitflow.png}
 
