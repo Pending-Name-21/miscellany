@@ -2,7 +2,7 @@
 \section{Methodology}\label{methodology}}
 
 \hypertarget{roles}{
-\subsection{Roles}\label{roles}}
+\subsection{ROLES}\label{roles}}
 
 \hypertarget{roles-res}{
 \subsubsection{Roles and Responsibilities}\label{roles-res}}
@@ -26,12 +26,10 @@ The Product Owner is responsible for defining the product vision and managing th
 \hypertarget{devteamrole}{
 \paragraph{Development Team}\label{devteamrole}}
 
-\hypertarget{gamesteam}{
-\paragraph{Games Team}\label{gamesteam}}
+\textbf{\\Games Team}
 The Games Team focuses on developing example games such as a tic-tac-toe and a Pac-Man. They work on implementing game logic. The Games Team collaborates closely with the Console Team to integrate input and output support.
 
-\hypertarget{consoleteam}{
-\paragraph{Console Team}\label{consoleteam}}
+\textbf{Console Team}
 The Console Team is responsible for developing the support for input events like keyboard and mouse, as well as output support for audio and graphical user interfaces. They ensure that the platform can run the games.
 
 \hypertarget{qateamrole}{
@@ -442,7 +440,7 @@ Duration:}}{Sprint Duration:}}\label{sprintduration}}
 \begin{itemize}
 \tightlist
 \item
-  As a team, we define our sprint of 1 weeks.
+  As a team, we define our sprint of 1 week.
 \end{itemize}
 
 \hypertarget{dailystandup}{
@@ -452,11 +450,6 @@ Daily stand-up meetings will be held by each sub-team to communicate
 progress and discuss any roadblocks. The schedule for these daily
 stand-ups will be set and agreed upon by each sub-team. The Scrum Master
 must attend all daily stand-up meetings.
-
-\hypertarget{demodelivery}{
-\subsubsection{Demo - Delivery:}\label{demodelivery}}
-
-Every Friday will be our demo about the US worked during the Sprint.
 
 \begin{itemize}
 \tightlist
@@ -638,10 +631,10 @@ Done}}{Definition of Done}}\label{definitionofdone}}
 \newpage
 
 \hypertarget{workflow-gitflow}{
-\subsubsection{WORKFLOW AND GITFLOW:}\label{workflow-gitflow}}
+\subsection{WORKFLOW AND GITFLOW}\label{workflow-gitflow}}
 
 \hypertarget{workflow}{
-\paragraph{Workflow:}\label{workflow}}
+\subsubsection{Workflow:}\label{workflow}}
 
 \hypertarget{availabilitysupporttime}{
 \paragraph{Availability / Support
@@ -686,14 +679,9 @@ Time:}\label{availabilitysupporttime}}
 \tightlist
 \item
   \textbf{Peer review:} when a developer finishes a task and uploads it
-  to the repository (makes a commit), another developer on the team
+  to the repository (makes a commit), another developer or two developers on the team
   should review the code. Aiming to detect errors and improve code
   quality.
-\item
-  On an ongoing basis, the development team leader will give feedback to
-  the development team regarding the code that is considered most
-  critical, or make a final review before the code is merged into the
-  master branch.
 \item
   \textbf{Code review automation:} code review tools will be used to
   automate part of this process such as \textbf{CI/CD}. Helping detect
@@ -706,12 +694,9 @@ Time:}\label{availabilitysupporttime}}
 \begin{itemize}
 \tightlist
 \item
-  Once a US is finished, it goes to "Ready for QA" status, we notify the
-  QA team and wait for their feedback.
+  Once a testeable US is finished, it goes to "Ready for QA" status, we notify the
 \item
-  In case issues are detected, we proceed to correct them and send the
-  US back to the \textbf{TEST} branch. If there are no problems, the US
-  goes to production.
+  In case issues are detected, we proceed to correct and it goes to "Ready for QA" again. If there are no problems, the US goes to production.
 \end{itemize}
 
 \hypertarget{qualitycontrolnbsp}{
@@ -740,7 +725,7 @@ Time:}\label{availabilitysupporttime}}
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \hypertarget{gitflow}{
-\paragraph{Gitflow}\label{gitflow}}
+\subsubsection{Gitflow}\label{gitflow}}
 
 We want to separate the different modules into different repositories to
 better control integration and continuous distribution (CI/CD)
@@ -754,10 +739,6 @@ macros, but we will retain the organization by logic and independent
 development.~
 
 \includegraphics[width=\textwidth]{./methodology/src/assets/microdeployment.jpg}
-
-For the moment, each repository will manage the GitFlow structure, and a
-small modification will be made by adding a testing branch for the QA
-team.
 
 \includegraphics[width=\textwidth]{./methodology/src/assets/gitflow.png}
 
