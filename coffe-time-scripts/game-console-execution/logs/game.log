@@ -1,0 +1,20 @@
+Hello, world!
+[B@18b4aac2
+factCallback: res = 720
+counterCallback: count = 1
+counterCallback: count = 2
+counterCallback: count = 3
+counterCallback: count = 4
+counterCallback: count = 5
+Invoking asyncComputation (thread id = 1)
+asyncCallback: thread id = 20, progress = 0%
+asyncCallback: thread id = 20, progress = 10%
+asyncCallback: thread id = 20, progress = 20%
+asyncCallback: thread id = 20, progress = 30%
+asyncCallback: thread id = 20, progress = 40%
+asyncCallback: thread id = 20, progress = 50%
+asyncCallback: thread id = 20, progress = 60%
+asyncCallback: thread id = 20, progress = 70%
+asyncCallback: thread id = 20, progress = 80%
+asyncCallback: thread id = 20, progress = 90%
+asyncCallback: thread id = 20, progress = 100%
