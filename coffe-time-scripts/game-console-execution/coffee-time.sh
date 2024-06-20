@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #socket path
-SOCKET_PATH= "/tmp/events-socket.sock"
 
 #logs directory
 LOG_DIR="logs"
@@ -20,12 +19,12 @@ start_process() {
 }
 
 # init socket-server
-start_process "${SOCKET_PATH}/socket-server.sh" "socket-server"
+start_process "./socket-server.sh" "socket-server"
 echo -n "Initializing... [$(tput setaf 1)Socket_Server$(tput sgr0)]"
 printf "\n"
 
 #init screen
-start_process "${SOCKET_PATH}/screen-server.sh" "screen-server"
+start_process "./screen-server.sh" "screen-server"
 echo -n "Initializing... [$(tput setaf 1)Screen_Server$(tput sgr0)]"
 printf "\n"
 
