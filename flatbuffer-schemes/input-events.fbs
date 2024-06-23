@@ -1,0 +1,12 @@
+// Schema to communicate device input events
+
+namespace CoffeeTime.InputEvents;
+
+// Produced by the Screen when a player interacts with the keyboard
+table KeyboardEvent {
+    state:string; // could be released or pressed
+    name:string; // keyboard keys
+}
+
+root_type KeyboardEvent;
+
