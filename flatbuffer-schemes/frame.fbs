@@ -1,0 +1,34 @@
+// Schema of a frame, used by screen and bridge to
+// exchange data for rendering
+
+namespace CoffeeTime.Output.Frame;
+
+table Sound {
+    can_play:bool;
+    path:string;
+}
+
+table Coord {
+    x:int;
+    y:int;
+}
+
+table Sprite {
+    position:Coord;
+    size:Size;
+    is_hidden:bool;
+    path:string;
+}
+
+table Size {
+    height:double;
+    width:double;
+}
+
+table Frame {
+    sounds:[Sound];
+    sprites:[Sprite];
+}
+
+root_type Frame;
+
