@@ -3,10 +3,26 @@
 namespace CoffeeTime.InputEvents;
 
 // Produced by the Screen when a player interacts with the keyboard
-table KeyboardEvent {
-    state:string; // could be released or pressed
-    name:string; // keyboard keys
+table Keyboard {
+    type:string; // could be released or pressed
+    key:string; // keyboard keys
 }
 
-root_type KeyboardEvent;
+table Position {
+    x:float;
+    y:float;
+}
+
+table Mouse {
+    type:string;
+    button:string;
+    position:Position;
+}
+
+table Event {
+    keyboard: Keyboard;
+    mouse: Mouse;
+}
+
+root_type Event;
 
