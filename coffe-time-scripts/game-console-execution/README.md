@@ -15,6 +15,7 @@ This guide will help you set up and run the Coffee-Time script. Follow the steps
 3. **Add the .jar File**
     - From the extracted zip, locate the `.jar` file.
     - Place the `.jar` file in the same directory level as the `coffe-time.sh` script.
+    - If you want to extract images, use the `.jar` inside the `jar with images` instead.
 
 
 4. **Run the Script**
@@ -30,6 +31,7 @@ This guide will help you set up and run the Coffee-Time script. Follow the steps
 5. **Check the Logs**
     - The script outputs logs to the `logs` folder.
     - Check the logs for any messages or errors.
+    - Check the extracted_images folders if the jar contained any.
 
 ### Notes
 For the jar image extraction to work, the images have to be in an image folder located in the root of the project.
