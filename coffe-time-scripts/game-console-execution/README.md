@@ -16,14 +16,8 @@ This guide will help you set up and run the Coffee-Time script. Follow the steps
     - From the extracted zip, locate the `.jar` file.
     - Place the `.jar` file in the same directory level as the `coffe-time.sh` script.
 
-4. **Update the Script**
-    - Open the `coffe-time.sh` script in a text editor.
-    - Change the `SOCKET_PATH` variable to `"./"`:
-      ```sh
-      SOCKET_PATH="./"
-      ```
 
-5. **Run the Script**
+4. **Run the Script**
     - Make the script executable (if not already):
       ```sh
       chmod +x coffe-time.sh
@@ -33,7 +27,9 @@ This guide will help you set up and run the Coffee-Time script. Follow the steps
       ./coffe-time.sh
       ```
 
-6. **Check the Logs**
+5. **Check the Logs**
     - The script outputs logs to the `logs` folder.
     - Check the logs for any messages or errors.
 
+### Notes
+For the jar image extraction to work, the images have to be in an image folder located in the root of the project.
