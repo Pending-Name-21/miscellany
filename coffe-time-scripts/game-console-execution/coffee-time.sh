@@ -18,18 +18,15 @@ start_process() {
 
 }
 
-# init socket-server
-start_process "./socket-server.sh" "socket-server"
-echo -n "Initializing... [$(tput setaf 1)Socket_Server$(tput sgr0)]"
-printf "\n"
 
 #init screen
 start_process "./screen-server.sh" "screen-server"
 echo -n "Initializing... [$(tput setaf 1)Screen_Server$(tput sgr0)]"
 printf "\n"
 
-#init game with library
+#init game with library and extraction of imgs
 java -Djava.library.path=console/ -jar HelloWorld.jar >"$LOG_DIR/game.log" 2>&1 &
+./extract_images.sh MyJavaProject.jar
 echo -n "Initializing... [$(tput setaf 1)Game$(tput sgr0)]"
 printf "\n"
 
