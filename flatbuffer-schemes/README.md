@@ -6,13 +6,13 @@ Directory for files related to socket communication
 ### Generate Java or Rust based on fbs schema?
 
 #### Requirements
-[flatcc](https://flatbuffers.dev/flatbuffers_guide_building.html) version 23.5.26.
+[flatc](https://flatbuffers.dev/flatbuffers_guide_building.html) version 23.5.26.
 
 #### Instructions
 
 Java
-`$ flatcc --java <file>.fbs`
+`$ flatc --java <file>.fbs`
 
 Rust
-`$ flatcc --rust <file>.fbs`
+`$ flatc --rust <file>.fbs`
 
