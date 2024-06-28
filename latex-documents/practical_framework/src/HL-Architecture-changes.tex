@@ -11,7 +11,7 @@ First version of our architecture, these are the first concepts we had to be abl
     \item First Architecture concept: \href{https://github.com/Pending-Name-21/arquitecture/pull/1/files}{Architecture}
 \end{itemize}
 
-\paragraph{Architecture bassed on JNI}
+\paragraph{Architecture based on JNI}
 Based on the spikes made in sprint 0 regarding LLVM and a JNI alternative, it was seen that although it was possible to use LLVM for our purposes, the tool was not made for communication between languages, LLVM is a set of tools focused on creating of compilers, although it had a tool developed for what we wanted, it was deprecated and abandoned, so LLVM was declared unviable, JNI as the alternative and based on the results of the JNI spike that was successful and showed a continuous communication between Java and Rust, it was decided to opt for an approach with JNI.
 
 \begin{itemize}
@@ -19,9 +19,17 @@ Based on the spikes made in sprint 0 regarding LLVM and a JNI alternative, it wa
     \item Spike JVM: \href{https://tree.taiga.io/project/joseluis-teran-coffeetime/us/2?milestone=390348}{JNI}
 \end{itemize}
 
-\subsubsection{Actual Architecture}
-It was observed that the communication that would be formed between console and bridge in terms of GUI was not clear, so for the game to run properly, the GUI should be running along with the game; and the current approach ties the graphical execution to the console, where each routine would have to create a GUI instance in order to fulfill its needs.
+\paragraph{Architecture based on JNI moving GUI to a container}
+It was observed that the communication that would be formed between console and bridge in terms of GUI was not clear. So for the game to run properly, the GUI should be running along with the game; and the current approach ties the graphical execution to the console, where each routine would have to create a GUI instance in order to fulfill its needs.
 
 \begin{itemize}
-    \item Last Architecture concept: \href{https://github.com/Pending-Name-21/arquitecture/pull/12}{Architecture}
+    \item Architecture based on JNI concept: \href{https://github.com/Pending-Name-21/arquitecture/pull/12}{Architecture}
+\end{itemize}
+
+
+\subsubsection{Architecture based on Socket communication IPC}
+For this last change there is a merge on bridge with console, using console as a middle-man between bridge and screen meant an extra layer of control, but the price is the complexity of implementation and maintainability. One point to change the architechture was complexity,
+an independent socket server running alongside the game and screen to enable their communication. This means console and socket server would need an agreement regarding frames.
+\begin{itemize}
+    \item Last Architecture concept: \href{https://github.com/Pending-Name-21/arquitecture/pull/17}{Architecture}
 \end{itemize}
