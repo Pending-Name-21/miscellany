@@ -1,36 +1,35 @@
-# US Related
+<!-- Please complete this template before creating the pull request. -->
 
-Please paste the link of the US worked.
+# Pull Request Template
+#### Resolved task/US: ([item title](https://tree.taiga.io/project/santiago_c_saavedra-hufflepuff/))
+* * * *
 
-## Description
+## What's in this pull request?
 
-Provide a small description of Pull Request or answer the following questions if it is necessary.
+<!-- Please include a summary of the change and which US or Task is fixed. -->
+<!-- Please also include relevant motivation and context. List any dependencies that are required for this change. -->
 
-- #### What did I do?
-- #### How did I do it?
-- #### Why did I do it?
+## Type of change
+<!-- Please delete options that are not relevant. -->
 
-## Type of Change
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] This change requires a documentation update
 
-Put an `x` in all the boxes that apply:
+## How Has This Been Tested?
+<!-- How was this change tested? -->
+<!-- DON'T DELETE THIS SECTION! If no tests added, explain why. -->
 
-- [ ] ✨ New Feature (non-breaking change which adds functionality)
-- [ ] 🛠️ Bug Fix (non-breaking change which fixes an issue)
-- [ ] ❌ Breaking Change (fix or feature that would cause existing functionality to change)
-- [ ] 🧹 Code Refactor
-- [ ] ✅ Build Configuration Change
-- [ ] 📝 Documentation
-- [ ] 🗑️ Chore
+## Checklist:
 
-## Pull Request Checklist
+- [ ] My code follows the style [guidelines](https://tree.taiga.io/project/santiago_c_saavedra-hufflepuff/wiki/methodology) of this project
+- [ ] I have performed a self-review of my own code
+- [ ] I have made corresponding changes to the documentation
+- [ ] My changes generate no new warnings
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing unit tests pass locally with my changes
+- [ ] I have checked my code and corrected any misspellings
 
-Put an `x` in all the boxes that apply:
 
-- [ ] My commit messages are detailed.
-- [ ] My code follows the code style of this project.
-- [ ] No existing features have been broken without good reason.
-- [ ] My change requires a change to the documentation.
-- [ ] I have updated the documentation accordingly.
-- [ ] I have added tests to cover my changes.
-- [ ] All new and existing tests pass.
 
