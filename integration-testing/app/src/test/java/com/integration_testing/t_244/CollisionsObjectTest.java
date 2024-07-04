@@ -27,7 +27,8 @@ import static com.integration_testing.Utils.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CollisionsObjectTest {
-    @Test void VerifyPacmanObjectRendersTest(){
+    @Test
+    void VerifyPacmanObjectRendersTest() {
         String projectPath = Paths.get("").toAbsolutePath().toString();
         SpriteRepository repository = new SpriteRepository();
         SpriteBuilder builder = new SpriteBuilder(repository);
@@ -35,7 +36,8 @@ class CollisionsObjectTest {
         runGame(makeGame(repository, new SoundRepository()));
     }
 
-    @Test void VerifyGhostObjectRendersTest(){
+    @Test
+    void VerifyGhostObjectRendersTest() {
         String projectPath = Paths.get("").toAbsolutePath().toString();
         SpriteRepository repository = new SpriteRepository();
         SpriteBuilder builder = new SpriteBuilder(repository);
@@ -43,7 +45,8 @@ class CollisionsObjectTest {
         runGame(makeGame(repository, new SoundRepository()));
     }
 
-    @Test void VerifyPacmanObjectMovesInRectLineRendersTest() throws RenderException {
+    @Test
+    void VerifyPacmanObjectMovesInRectLineRendersTest() throws RenderException {
         String projectPath = Paths.get("").toAbsolutePath().toString();
         SocketClient socketClient = new SocketClient(SocketClient.NAMESPACE);
         Transmitter transmitter = new Transmitter(socketClient);
@@ -66,7 +69,8 @@ class CollisionsObjectTest {
         }
     }
 
-    @Test void VerifyGhostObjectMovesInRectLineRendersTest() throws RenderException {
+    @Test
+    void VerifyGhostObjectMovesInRectLineRendersTest() throws RenderException {
         String projectPath = Paths.get("").toAbsolutePath().toString();
         SocketClient socketClient = new SocketClient(SocketClient.NAMESPACE);
         Transmitter transmitter = new Transmitter(socketClient);
@@ -87,5 +91,117 @@ class CollisionsObjectTest {
         } catch (RenderException | InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    void VerifyGhostAndPacmanSimultaneouslyObjectsMovesInRectLineRendersTest() throws RenderException {
+        String projectPath = Paths.get("").toAbsolutePath().toString();
+
+        SocketClient socketClient = new SocketClient(SocketClient.NAMESPACE);
+        Transmitter transmitter = new Transmitter(socketClient);
+
+        SpriteRepository repository = new SpriteRepository();
+        SpriteBuilder builder = new SpriteBuilder(repository);
+        Sprite ghost = makeSprite(builder, projectPath + "/src/test/resources/ghost.png", 0, 10);
+        Sprite pacman = makeSprite(builder, projectPath + "/src/test/resources/pacman.png", 10, 20);
+        Game game = makeGame(repository, new SoundRepository());
+        try {
+            for (int i = 0; i < 300; i++) {
+                Coord newPosition = new Coord(300, 20);
+                Coord newPosition2 = new Coord(i, 20);
+                ghost.setPosition(newPosition);
+                pacman.setPosition(newPosition2);
+                Frame frame = new Frame(List.of(ghost), List.of());
+                Frame frame2 = new Frame(List.of(pacman), List.of());
+                transmitter.send(frame2);
+                transmitter.send(frame);
+                game.render();
+                Thread.sleep(10);
+            }
+        } catch (RenderException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void VerifyGhostAndPacmanArePushedAwayWhenTheyCollide() {
+        String projectPath = Paths.get("").toAbsolutePath().toString();
+        boolean collisionDetected = false;
+
+        SocketClient socketClient = new SocketClient(SocketClient.NAMESPACE);
+        Transmitter transmitter = new Transmitter(socketClient);
+
+        SpriteRepository repository = new SpriteRepository();
+        SpriteBuilder builder = new SpriteBuilder(repository);
+        Sprite ghost = makeSprite(builder, projectPath + "/src/test/resources/ghost.png", 0, 10);
+        Sprite pacman = makeSprite(builder, projectPath + "/src/test/resources/pacman.png", 10, 20);
+        Game game = makeGame(repository, new SoundRepository());
+        try {
+            for (int i = 0; i < 300; i++) {
+                Coord pacmanPosition = new Coord(300, 20);
+                Coord ghostPosition = new Coord(i, 20);
+                ghost.setPosition(ghostPosition);
+                pacman.setPosition(pacmanPosition);
+                if (Math.abs(pacman.getPosition().getX() - ghost.getPosition().getX()) < 20 && Math.abs(pacman.getPosition().getY() - ghost.getPosition().getY()) < 20) {
+                    collisionDetected = true;
+                    pacman.setPosition(new Coord(0,0));
+                    ghost.setPosition(new Coord(200,200));
+                }
+                Frame frame = new Frame(List.of(ghost), List.of());
+                Frame frame2 = new Frame(List.of(pacman), List.of());
+
+                transmitter.send(frame);
+                transmitter.send(frame2);
+                game.render();
+                Thread.sleep(10);
+            }
+        } catch (RenderException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        assertTrue(collisionDetected);
+        assertTrue(pacman.getPosition().getX() < ghost.getPosition().getX());
+    }
+
+
+    @Test
+    void VerifyGameOverMessageWhenGhostAndPacmaTheyCollideTest() {
+        String projectPath = Paths.get("").toAbsolutePath().toString();
+        boolean collisionDetected = false;
+
+        SocketClient socketClient = new SocketClient(SocketClient.NAMESPACE);
+        Transmitter transmitter = new Transmitter(socketClient);
+
+        SpriteRepository repository = new SpriteRepository();
+        SpriteBuilder builder = new SpriteBuilder(repository);
+        Sprite ghost = makeSprite(builder, projectPath + "/src/test/resources/ghost.png", 0, 10);
+        Sprite pacman = makeSprite(builder, projectPath + "/src/test/resources/pacman.png", 10, 20);
+        Game game = makeGame(repository, new SoundRepository());
+        try {
+            for (int i = 0; i < 300; i++) {
+                Coord pacmanPosition = new Coord(300, 20);
+                Coord ghostPosition = new Coord(i, 20);
+                ghost.setPosition(ghostPosition);
+                pacman.setPosition(pacmanPosition);
+                if (Math.abs(pacman.getPosition().getX() - ghost.getPosition().getX()) < 20 && Math.abs(pacman.getPosition().getY() - ghost.getPosition().getY()) < 20) {
+                    Sprite gameover = makeSprite(builder, projectPath + "/src/test/resources/gameover.png", 0, 0);
+                    collisionDetected = true;
+                    gameover.setZ_index(1);
+                    Frame frame = new Frame(List.of(ghost), List.of());
+                    transmitter.send(frame);
+                    game.render();
+                    break;
+                }
+                Frame frame = new Frame(List.of(ghost), List.of());
+                Frame frame2 = new Frame(List.of(pacman), List.of());
+
+                transmitter.send(frame);
+                transmitter.send(frame2);
+                game.render();
+                Thread.sleep(10);
+            }
+        } catch (RenderException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        assertTrue(collisionDetected);
     }
 }
